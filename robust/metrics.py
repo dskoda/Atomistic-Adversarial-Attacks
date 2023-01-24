@@ -483,6 +483,6 @@ class MAE(MeanAbsoluteError):
     @staticmethod
     def loss_fn(y, yp):
         diff = y[..., None].expand_as(yp) - yp
-        return torch.sum(ch.abs(diff).view(-1)).detach().cpu().data.numpy()
+        return torch.sum(torch.abs(diff).view(-1)).detach().cpu().data.numpy()
 
 
