@@ -4,8 +4,8 @@ from scipy import stats
 from scipy.spatial.distance import squareform
 from scipy.cluster.hierarchy import fcluster, linkage
 
-from robust.data import PotentialDataset
-from robust.loss import RmsdLoss
+from .data import PotentialDataset
+from .loss import RmsdLoss
 
 
 DEFAULT_PERCENTILE = 80

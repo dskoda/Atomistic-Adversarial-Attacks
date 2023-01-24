@@ -2,8 +2,7 @@ import os
 import torch as ch
 import numpy as np
 
-from robust import train, loss, attacks, data
-from . import score
+from . import train, loss, attacks, data, score
 from .pipeline import ForwardPipeline
 
 

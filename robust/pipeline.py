@@ -2,8 +2,8 @@ import torch as ch
 from torch.optim import Adam
 from torch.utils.data import DataLoader
 
-from robust.models import NnEnsemble, NnRegressor
-from robust import metrics, hooks, train, loss, attacks, data
+from .models import NnEnsemble, NnRegressor
+from . import metrics, hooks, train, loss, attacks, data
 
 
 DEFAULT_NAME = "train"
