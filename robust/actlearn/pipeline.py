@@ -2,8 +2,6 @@ import torch as ch
 from torch.optim import Adam
 from torch.utils.data import DataLoader
 
-from nff.train import hooks as nff_hooks
-
 from robust.models import NnEnsemble, NnRegressor
 from robust import metrics, hooks, train, loss, attacks, data
 
@@ -104,15 +102,15 @@ class ForwardPipeline:
 
     def get_hooks(self, optimizer):
         return [
-            nff_hooks.MaxEpochHook(self.train_params.get("max_epochs", MAX_EPOCHS)),
-            nff_hooks.PrintingHook(
+            hooks.MaxEpochHook(self.train_params.get("max_epochs", MAX_EPOCHS)),
+            hooks.PrintingHook(
                 self.name,
                 metrics=self.get_metrics(),
                 separator=" | ",
                 time_strf="%M:%S",
                 every_n_epochs=25,
             ),
-            nff_hooks.ReduceLROnPlateauHook(
+            hooks.ReduceLROnPlateauHook(
                 optimizer=optimizer,
                 patience=50,
                 factor=0.5,

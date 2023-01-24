@@ -6,7 +6,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from .modules import Dense, Softplus
-from nff.utils.scatter import compute_grad
+from robust.gradutils import compute_grad
 
 
 class NnRegressor(nn.Module):

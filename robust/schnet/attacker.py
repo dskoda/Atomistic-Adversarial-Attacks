@@ -1,8 +1,15 @@
 import tqdm
 import torch as ch
 
-from nff.utils.cuda import batch_to
 import copy
+
+
+def batch_to(batch, device):
+    gpu_batch = dict()
+    for key, val in batch.items():
+        gpu_batch[key] = val.to(device) if hasattr(val, 'to') else val
+    return gpu_batch
+
 
 class Attacker:
     """Performs an adversarial attack on an `initial` atom using the `ensemble` models."""
